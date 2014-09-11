@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\coltmw\Documents\GitHub\ecen4024-microphone-array\ecen4024-microphone-array\main_array.ncd
+OUTFILE=C:\Users\coltmw\Documents\GitHub\ecen4024-microphone-array\ecen4024-microphone-array\main_array.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Users\coltmw\Documents\GitHub\ecen4024-microphone-array\ecen4024-microphone-array
+LICENSE=WebPack
+USER_INFO=210936491_0_0_231
