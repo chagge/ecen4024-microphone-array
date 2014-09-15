@@ -1,0 +1,89 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
+| Date         : Sun Sep 14 23:50:50 2014
+| Host         : ECE-411-6 running 64-bit Service Pack 1  (build 7601)
+| Command      : report_control_sets -verbose -file main_array_control_sets_placed.rpt
+| Design       : main_array
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    36 |
+| Minimum Number of register sites lost to control set restrictions |    77 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             711 |          186 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               6 |            2 |
+| Yes          | No                    | No                     |             281 |           64 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              37 |            9 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+|  Clock Signal  |                                                                   Enable Signal                                                                  |                                                        Set/Reset Signal                                                       | Slice Load Count | Bel Load Count |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                                                                                                                                  |                                                                                                                               |                1 |              1 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/cin                                                                             | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/n_0_g_semi_parallel_and_smac.g_ipbuff.ipbuff_rate_cnt[3]_i_1 |                1 |              4 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/base_en_px_cntrl                                                                | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/n_0_g_semi_parallel_and_smac.gen_data_addr[1]_i_1            |                2 |              4 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.i_phase_buff_read/O1                                   |                                                                                                                               |                1 |              4 |
+|  xlnx_opt__1   | cic_filter/U0/i_synth/decimator.decimation_filter/op_rate_en                                                                                     | cic_filter/U0/i_synth/decimator.decimation_filter/n_0_op_rate_cnt[3]_i_1                                                      |                1 |              4 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/n_0_g_semi_parallel_and_smac.ipbuff_addr_out[3]_i_1                             |                                                                                                                               |                1 |              4 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/base_en_cntrl                                                                                   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/n_0_g_semi_parallel_and_smac.base_cnt[4]_i_1                                 |                1 |              5 |
+|  xlnx_opt__1   | cic_filter/U0/i_synth/decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_nd_out_dly/O1                                | cic_filter/U0/i_synth/decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_nd_out_dly/SR[0]          |                1 |              5 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/base_en                                                                         | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/n_0_g_semi_parallel_and_smac.base_cnt[4]_i_1                 |                1 |              5 |
+|  clk_IBUF_BUFG |                                                                                                                                                  | n_0_clk_divider[5]_i_1                                                                                                        |                2 |              6 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/base_en_cntrl                                                                                   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/n_0_g_semi_parallel_and_smac.gen_data_addr[4]_i_1                            |                2 |             10 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/g_semi_parallel_and_smac.i_latch_op/latch_op                                                    |                                                                                                                               |                5 |             16 |
+|  xlnx_opt__1   | cic_filter/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_comb_mem_src.gen_en_dly/O1 |                                                                                                                               |                4 |             22 |
+|  xlnx_opt__1   | cic_filter/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_nd_out_dly/comb_nd_out                        |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.i_cntrl_src/CNTRL_IN[0]                                |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl_src[3]                                                                                    |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.g_cntrl_signals[8].i_delay/CNTRL_IN[0]                 |                                                                                                                               |                5 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.g_cntrl_signals[7].i_delay/CNTRL_IN[0]                 |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/g_semi_parallel_and_smac.g_cntrl_signals[6].i_delay/D[0]                                        |                                                                                                                               |                5 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/g_semi_parallel_and_smac.g_cntrl_signals[7].i_delay/D[0]                                        |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.g_s_data_chan_fifo.i_s_data_chan_fifo/wr_enable        |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/ipbuff_rate_enable                                                              |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/g_s_data_chan_fifo.i_s_data_chan_fifo/wr_enable                                                 |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[1]_7[3]                                                                                   |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[1]_7[6]                                                                                   |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[1]_7[7]                                                                                   |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[2]_6[3]                                                                                   |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[2]_6[7]                                                                                   |                                                                                                                               |                7 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/cntrl[2]_6[8]                                                                                   |                                                                                                                               |                5 |             22 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/g_semi_parallel_and_smac.i_latch_op/latch_op                                    |                                                                                                                               |                6 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/rfd_int                                                                                         |                                                                                                                               |                3 |             22 |
+|  xlnx_opt__1   | lp_filter/U0/i_synth/g_single_rate.i_single_rate/m_axis_data_tvalid                                                                              |                                                                                                                               |                8 |             29 |
+|  xlnx_opt__1   | cic_filter/U0/i_synth/decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_mem_we/mem_reg_ce          |                                                                                                                               |                6 |             44 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/ip_buff_we                                                                      |                                                                                                                               |                7 |             48 |
+|  xlnx_opt__1   | hb_filter/U0/i_synth/g_halfband_decimation.i_halfband_decimation/we_buff_allign                                                                  |                                                                                                                               |                8 |             48 |
+|  xlnx_opt__1   |                                                                                                                                                  |                                                                                                                               |              195 |            744 |
++----------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+
+
+

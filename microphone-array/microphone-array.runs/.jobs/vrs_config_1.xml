@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="cascaded_integrator_comb_synth_1" LaunchDir="C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

@@ -1,0 +1,477 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Sun Sep 14 15:20:14 2014
+# Process ID: 5680
+# Log file: C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1/cascaded_integrator_comb.vds
+# Journal file: C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1\vivado.jou
+#-----------------------------------------------------------
+source cascaded_integrator_comb.tcl
+# set_param gui.test TreeTableDev
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7a100tcsg324-1
+# set_property target_language Verilog [current_project]
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_property default_lib xil_defaultlib [current_project]
+# read_ip c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.xci
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2014.2/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'cascaded_integrator_comb' generated file not found 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'cascaded_integrator_comb' generated file not found 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'cascaded_integrator_comb' generated file not found 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'cascaded_integrator_comb' generated file not found 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_funcsim.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'cascaded_integrator_comb' generated file not found 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_funcsim.vhdl'. Please regenerate to continue.
+# set_property used_in_implementation false [get_files c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.dcp]
+# set_property used_in_implementation false [get_files -all c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.dcp]
+# set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+# set_property is_locked true [get_files c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.xci]
+# read_xdc dont_touch.xdc
+# set_property used_in_implementation false [get_files dont_touch.xdc]
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.cache/wt [current_project]
+# set_property parent.project_dir C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array [current_project]
+# catch { write_hwdef -file cascaded_integrator_comb.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top cascaded_integrator_comb -part xc7a100tcsg324-1 -mode out_of_context
+Command: synth_design -top cascaded_integrator_comb -part xc7a100tcsg324-1 -mode out_of_context
+
+Starting synthesis...
+
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 231.352 ; gain = 98.137
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'cascaded_integrator_comb' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/synth/cascaded_integrator_comb.vhd:70]
+INFO: [Synth 8-3491] module 'cic_compiler_v4_0' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0.vhd:107' bound to instance 'U0' of component 'cic_compiler_v4_0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/synth/cascaded_integrator_comb.vhd:149]
+INFO: [Synth 8-638] synthesizing module 'cic_compiler_v4_0__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0.vhd:202]
+INFO: [Synth 8-3491] module 'cic_compiler_v4_0_viv' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:125' bound to instance 'i_synth' of component 'cic_compiler_v4_0_viv' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0.vhd:210]
+INFO: [Synth 8-638] synthesizing module 'cic_compiler_v4_0_viv__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:233]
+INFO: [Synth 8-3491] module 'decimate' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:128' bound to instance 'decimation_filter' of component 'decimate' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:612]
+INFO: [Synth 8-638] synthesizing module 'decimate__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:170]
+INFO: [Synth 8-63] RTL assertion: "Folding....." [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_pkg.vhd:856]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_data_in_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:449]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized0' (1#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'int_comb_section' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_section.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'int_comb_stage_unfolded' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:164]
+INFO: [Synth 8-638] synthesizing module 'delay_bit' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit' (2#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_src' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:277]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized2' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized2' (2#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'delay_bit__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit__parameterized0' (2#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_mem' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:361]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:453]
+INFO: [Synth 8-638] synthesizing module 'emb_calc' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:172]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_b_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:269]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized4' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized4' (2#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_a_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:429]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized6' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized6' (2#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:572]
+INFO: [Synth 8-113] binding component instance 'dsp48e1_v6' to cell 'DSP48E1' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:622]
+WARNING: [Synth 8-3848] Net bc_in in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:200]
+WARNING: [Synth 8-3848] Net ac_in in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:197]
+WARNING: [Synth 8-3848] Net pre_addsub_src in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:215]
+INFO: [Synth 8-256] done synthesizing module 'emb_calc' (3#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:172]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_qout_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:534]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_unfolded does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:409]
+INFO: [Synth 8-256] done synthesizing module 'int_comb_stage_unfolded' (4#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:164]
+INFO: [Synth 8-638] synthesizing module 'int_comb_stage_unfolded__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:164]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_src' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:277]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_mem' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:361]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:453]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_qout_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:534]
+INFO: [Synth 8-638] synthesizing module 'delay_bit__parameterized1' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit__parameterized1' (4#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_unfolded__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:409]
+INFO: [Synth 8-256] done synthesizing module 'int_comb_stage_unfolded__parameterized0' (4#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:164]
+INFO: [Synth 8-256] done synthesizing module 'int_comb_section' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_section.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'delay_bit__parameterized2' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit__parameterized2' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'delay_bit__parameterized3' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit__parameterized3' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_comb_in_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:1044]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized8' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized8' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'int_comb_section__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_section.vhd:161]
+INFO: [Synth 8-63] RTL assertion: "Folding....." [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_pkg.vhd:856]
+INFO: [Synth 8-638] synthesizing module 'int_comb_stage_folded' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:169]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_src' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:286]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:355]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized10' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized10' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:148]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_mem' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:442]
+INFO: [Synth 8-3919] null assignment ignored [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:540]
+INFO: [Synth 8-638] synthesizing module 'emb_calc__parameterized0' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:172]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_b_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:269]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_a_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:429]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_d_extra_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:572]
+INFO: [Synth 8-113] binding component instance 'dsp48e1_v6' to cell 'DSP48E1' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:622]
+WARNING: [Synth 8-3848] Net bc_in in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:200]
+WARNING: [Synth 8-3848] Net ac_in in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:197]
+WARNING: [Synth 8-3848] Net pre_addsub_src in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:215]
+INFO: [Synth 8-256] done synthesizing module 'emb_calc__parameterized0' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:172]
+INFO: [Synth 8-3491] module 'delay' declared at 'c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay.vhd:127' bound to instance 'gen_qout_dly' of component 'delay' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:626]
+INFO: [Synth 8-638] synthesizing module 'delay_bit__parameterized4' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'delay_bit__parameterized4' (5#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/delay_bit.vhd:139]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_folded does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:498]
+INFO: [Synth 8-256] done synthesizing module 'int_comb_stage_folded' (6#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:169]
+INFO: [Synth 8-256] done synthesizing module 'int_comb_section__parameterized0' (6#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_section.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'decimate__parameterized0' (7#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:170]
+WARNING: [Synth 8-3848] Net m_axis_data_tuser in module/entity cic_compiler_v4_0_viv__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:207]
+WARNING: [Synth 8-3848] Net m_axis_data_tlast in module/entity cic_compiler_v4_0_viv__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:210]
+INFO: [Synth 8-256] done synthesizing module 'cic_compiler_v4_0_viv__parameterized0' (8#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:233]
+INFO: [Synth 8-256] done synthesizing module 'cic_compiler_v4_0__parameterized0' (9#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0.vhd:202]
+INFO: [Synth 8-256] done synthesizing module 'cascaded_integrator_comb' (10#1) [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/synth/cascaded_integrator_comb.vhd:70]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 272.074 ; gain = 138.859
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Optimization
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[47] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[46] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[45] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[44] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[43] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[42] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[41] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[40] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[39] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[38] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[37] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[36] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[35] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[34] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[33] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[32] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[31] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[30] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[29] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[28] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[27] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[26] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[25] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[24] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[23] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[22] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[21] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[20] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[19] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[18] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[17] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[16] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[15] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[14] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[13] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[12] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[11] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[10] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[9] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[8] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[7] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[6] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[5] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[4] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[3] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[2] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[1] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[0] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[47] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[46] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[45] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[44] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[43] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[42] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[41] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[40] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[39] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[38] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[37] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[36] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[35] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[34] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[33] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[32] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[31] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[30] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[29] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[28] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[27] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[26] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[25] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[24] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[23] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[22] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[21] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[20] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[19] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[18] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[17] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[16] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[15] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[14] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[13] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[12] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[11] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[10] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[9] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[8] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[7] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[6] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[5] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[4] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[3] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[2] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[1] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[0] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:455]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[47] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:543]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[46] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:543]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[45] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:543]
+INFO: [Synth 8-3295] tying undriven pin \gen_split_accum[0].gen_sum_struct.gen_sum :PCIN[44] to constant 0 [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:543]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
+Loading clock placement rules from C:/Xilinx/Vivado/2014.2/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/PinFunctions.xml...
+Loading package from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml
+Loading io standards from C:/Xilinx/Vivado/2014.2/data\./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/artix7/ConfigModes.xml
+
+Processing XDC Constraints
+Parsing XDC File [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+---------------------------------------------------------------------------------
+Start RTL Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'nd_qual_reg' into 'enable_reg' [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/decimate.vhd:328]
+WARNING: [Synth 8-3848] Net bc_in in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:200]
+WARNING: [Synth 8-3848] Net ac_in in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:197]
+WARNING: [Synth 8-3848] Net pre_addsub_src in module/entity emb_calc does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:215]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_unfolded does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:409]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_unfolded__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_unfolded.vhd:409]
+WARNING: [Synth 8-3848] Net bc_in in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:200]
+WARNING: [Synth 8-3848] Net ac_in in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:197]
+WARNING: [Synth 8-3848] Net pre_addsub_src in module/entity emb_calc__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/emb_calc.vhd:215]
+WARNING: [Synth 8-3848] Net sum_in_casc in module/entity int_comb_stage_folded does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/int_comb_stage_folded.vhd:498]
+WARNING: [Synth 8-3848] Net m_axis_data_tuser in module/entity cic_compiler_v4_0_viv__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:207]
+WARNING: [Synth 8-3848] Net m_axis_data_tlast in module/entity cic_compiler_v4_0_viv__parameterized0 does not have driver. [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cic_compiler_v4_0/hdl/cic_compiler_v4_0_viv.vhd:210]
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+Finished Parallel Reinfer  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 479.469 ; gain = 346.254
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 497.418 ; gain = 364.203
+---------------------------------------------------------------------------------
+Finished Parallel Area Opt  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 497.418 ; gain = 364.203
+Finished Parallel Section  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 497.418 ; gain = 364.203
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 584.781 ; gain = 451.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 585.758 ; gain = 452.543
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[0].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[0].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[4] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[0].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[0] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[0].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.addsub_reg ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[1].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[1].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[4] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[1].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[0] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[1].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.addsub_reg ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[2].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[2].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[4] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[2].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[0] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[2].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.addsub_reg ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[3].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[3].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[4] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[3].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[0] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[3].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.addsub_reg ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[4] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[0] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/int/gen_stages[4].gen_unfolded.int_comb_stage/gen_split_accum[0].gen_sum_struct.addsub_reg ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[6] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[3] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[2] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+INFO: [Synth 8-3332] Sequential element (\decimator.decimation_filter/comb/gen_stages[0].gen_folded.int_comb_stage/gen_split_accum[0].gen_sum_struct.opcode_reg[1] ) is unused and will be removed from module cic_compiler_v4_0_viv__parameterized0.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |DSP48E1 |     6|
+|2     |LUT1    |     7|
+|3     |LUT2    |     7|
+|4     |LUT3    |    28|
+|5     |LUT4    |     4|
+|6     |LUT5    |     4|
+|7     |SRL16E  |    46|
+|8     |FDRE    |   183|
+|9     |FDSE    |     1|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 464.133
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Parsing XDC File [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_ooc.xdc] for cell 'U0'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+208 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 597.348 ; gain = 411.922
+# rename_ref -prefix_all cascaded_integrator_comb_
+INFO: [Coretcl 2-1174] Renamed 36 cell refs.
+# write_checkpoint -noxdef cascaded_integrator_comb.dcp
+# report_utilization -file cascaded_integrator_comb_utilization_synth.rpt -pb cascaded_integrator_comb_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 597.348 ; gain = 0.000
+# if { [catch {
+#   file copy -force C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1/cascaded_integrator_comb.dcp c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb.dcp
+#   write_verilog -force -mode synth_stub c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_stub.v
+#   write_vhdl -force -mode synth_stub c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_stub.vhdl
+#   write_verilog -force -mode funcsim c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_funcsim.v
+#   write_vhdl -force -mode funcsim c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/cascaded_integrator_comb/cascaded_integrator_comb_funcsim.vhdl
+# } _RESULT ] } { 
+#   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
+#   return -code error
+# }
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 14 15:20:54 2014...

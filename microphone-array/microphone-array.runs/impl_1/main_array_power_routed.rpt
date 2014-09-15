@@ -1,0 +1,342 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
+| Date             : Sun Sep 14 23:51:22 2014
+| Host             : ECE-411-6 running 64-bit Service Pack 1  (build 7601)
+| Command          : report_power -file main_array_power_routed.rpt -pb main_array_power_summary_routed.pb
+| Design           : main_array
+| Device           : xc7a100tcsg324-1
+| Design State     : Routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------+
+| Total On-Chip Power (W)  | 0.107  |
+| Dynamic (W)              | 0.010  |
+| Device Static (W)        | 0.097  |
+| Effective TJA (C/W)      | 4.6    |
+| Max Ambient (C)          | 84.5   |
+| Junction Temperature (C) | 25.5   |
+| Confidence Level         | Medium |
+| Setting File             | ---    |
+| Simulation Activity File | ---    |
+| Design Nets Matched      | NA     |
++--------------------------+--------+
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |    <0.001 |        1 |       --- |             --- |
+| Slice Logic              |    <0.001 |     2048 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |      288 |     63400 |            0.45 |
+|   Register               |    <0.001 |     1035 |    126800 |            0.81 |
+|   CARRY4                 |    <0.001 |       42 |     15850 |            0.26 |
+|   LUT as Shift Register  |    <0.001 |      216 |     19000 |            1.13 |
+|   BUFG                   |    <0.001 |        1 |        32 |            3.12 |
+|   F7/F8 Muxes            |    <0.001 |        4 |     63400 |           <0.01 |
+|   LUT as Distributed RAM |    <0.001 |       44 |     19000 |            0.23 |
+|   Others                 |     0.000 |      213 |       --- |             --- |
+| Signals                  |     0.003 |     1651 |       --- |             --- |
+| DSPs                     |     0.007 |       16 |       240 |            6.66 |
+| I/O                      |    <0.001 |        6 |       210 |            2.85 |
+| Static Power             |     0.097 |          |           |                 |
+| Total                    |     0.107 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     0.025 |       0.010 |      0.015 |
+| Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
+| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       0.000 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Medium     | More than 25% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------------+--------+-----------------+
+| Clock       | Domain | Constraint (ns) |
++-------------+--------+-----------------+
+| sys_clk_pin | clk    |            10.0 |
++-------------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++---------------------------------------------------------------------------------------------------------------------+-----------+
+| Name                                                                                                                | Power (W) |
++---------------------------------------------------------------------------------------------------------------------+-----------+
+| main_array                                                                                                          |     0.010 |
+|   audio_out                                                                                                         |    <0.001 |
+|   cic_filter                                                                                                        |     0.005 |
+|     U0                                                                                                              |     0.005 |
+|       i_synth                                                                                                       |     0.005 |
+|         decimator.decimation_filter                                                                                 |     0.005 |
+|           comb                                                                                                      |    <0.001 |
+|             gen_stages[0].gen_folded.int_comb_stage                                                                 |    <0.001 |
+|               gen_nd_out_dly                                                                                        |    <0.001 |
+|               gen_split_accum[0].gen_comb_mem_src.gen_d_dly                                                         |    <0.001 |
+|               gen_split_accum[0].gen_comb_mem_src.gen_en_dly                                                        |    <0.001 |
+|               gen_split_accum[0].gen_comb_mem_src.gen_nd_dly                                                        |    <0.001 |
+|               gen_split_accum[0].gen_mem                                                                            |    <0.001 |
+|               gen_split_accum[0].gen_mem_we                                                                         |    <0.001 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |    <0.001 |
+|           gen_comb_in_dly                                                                                           |    <0.001 |
+|           gen_comb_nd_in_dly                                                                                        |    <0.001 |
+|           gen_fixed_rate_ip.gen_data_in_dly                                                                         |    <0.001 |
+|           int                                                                                                       |     0.005 |
+|             gen_stages[0].gen_unfolded.int_comb_stage                                                               |    <0.001 |
+|               gen_nd_out_dly                                                                                        |     0.000 |
+|               gen_split_accum[0].gen_mem_we                                                                         |     0.000 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |    <0.001 |
+|             gen_stages[1].gen_unfolded.int_comb_stage                                                               |     0.001 |
+|               gen_nd_out_dly                                                                                        |     0.000 |
+|               gen_split_accum[0].gen_mem_we                                                                         |     0.000 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |     0.001 |
+|             gen_stages[2].gen_unfolded.int_comb_stage                                                               |     0.001 |
+|               gen_nd_out_dly                                                                                        |     0.000 |
+|               gen_split_accum[0].gen_mem_we                                                                         |     0.000 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |     0.001 |
+|             gen_stages[3].gen_unfolded.int_comb_stage                                                               |     0.001 |
+|               gen_nd_out_dly                                                                                        |     0.000 |
+|               gen_split_accum[0].gen_mem_we                                                                         |     0.000 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |     0.001 |
+|             gen_stages[4].gen_unfolded.int_comb_stage                                                               |     0.001 |
+|               gen_nd_out_dly                                                                                        |    <0.001 |
+|               gen_split_accum[0].gen_mem_we                                                                         |     0.000 |
+|               gen_split_accum[0].gen_sum_struct.gen_sum                                                             |     0.001 |
+|   hb_filter                                                                                                         |    <0.001 |
+|     U0                                                                                                              |    <0.001 |
+|       i_synth                                                                                                       |    <0.001 |
+|         g_halfband_decimation.i_halfband_decimation                                                                 |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[7].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[8].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[9].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_ipbuff.i_ipbuff                                                                |    <0.001 |
+|             gen_dram.ram_reg_0_15_0_0                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_10_10                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_11_11                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_12_12                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_13_13                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_14_14                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_15_15                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_16_16                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_17_17                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_18_18                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_19_19                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_1_1                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_20_20                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_21_21                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_2_2                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_3_3                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_4_4                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_5_5                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_6_6                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_7_7                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_8_8                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_9_9                                                                               |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[0].g_coln_cntrl_and_addr[0].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[0].g_wrap_buff.i_data_wrap_buff                   |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |     0.000 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[1].i_mem                                                  |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_smac.i_maccum                                                       |    <0.001 |
+|             i_addsub_mult_accum                                                                                     |    <0.001 |
+|           g_semi_parallel_and_smac.g_s_data_chan_fifo.i_s_data_chan_fifo                                            |    <0.001 |
+|             fifo0                                                                                                   |    <0.001 |
+|           g_semi_parallel_and_smac.i_accumulate                                                                     |    <0.001 |
+|           g_semi_parallel_and_smac.i_cntrl_coef_addr                                                                |    <0.001 |
+|           g_semi_parallel_and_smac.i_cntrl_data_addr                                                                |    <0.001 |
+|           g_semi_parallel_and_smac.i_cntrl_data_sym_addr                                                            |    <0.001 |
+|           g_semi_parallel_and_smac.i_cntrl_src                                                                      |    <0.001 |
+|           g_semi_parallel_and_smac.i_latch_op                                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.i_load                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.i_phase_buff                                                                     |    <0.001 |
+|             gen_dram.ram_reg_0_15_0_0                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_10_10                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_11_11                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_12_12                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_13_13                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_14_14                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_15_15                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_16_16                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_17_17                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_18_18                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_19_19                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_1_1                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_20_20                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_21_21                                                                             |    <0.001 |
+|             gen_dram.ram_reg_0_15_2_2                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_3_3                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_4_4                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_5_5                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_6_6                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_7_7                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_8_8                                                                               |    <0.001 |
+|             gen_dram.ram_reg_0_15_9_9                                                                               |    <0.001 |
+|           g_semi_parallel_and_smac.i_phase_buff_read                                                                |    <0.001 |
+|   hp_filter                                                                                                         |    <0.001 |
+|   lp_filter                                                                                                         |     0.003 |
+|     U0                                                                                                              |     0.003 |
+|       i_synth                                                                                                       |     0.003 |
+|         g_single_rate.i_single_rate                                                                                 |     0.003 |
+|           g_op_paths[0].g_combine.i_ext_mult                                                                        |    <0.001 |
+|             g_two_col_comb.i_gen_upper_bits                                                                         |    <0.001 |
+|               i_add_accum                                                                                           |    <0.001 |
+|           g_s_data_chan_fifo.i_s_data_chan_fifo                                                                     |    <0.001 |
+|             fifo0                                                                                                   |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[6].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[7].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_cntrl_signals[8].i_delay                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[0].g_coln_cntrl_and_addr[0].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[0].g_sym_data.g_sym_data_casc.i_data_sym_casc_dly |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[1].g_coln_cntrl_and_addr[1].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[1].g_sym_data.g_sym_data_casc.i_data_sym_casc_dly |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[2].g_coln_cntrl_and_addr[2].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_data_array.g_madd[2].g_wrap_buff.i_data_wrap_buff                   |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_accum.i_accum                                |    <0.001 |
+|             i_add_accum                                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[0].g_coef.i_coef_addr                   |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[0].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[1].g_coef.i_coef_addr                   |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[1].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[2].g_coef.i_coef_addr                   |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_madd_array_and_accum.g_madd[2].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |     0.000 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[1].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[2].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[3].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[0].g_mem_array[4].i_mem                                                  |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[0].g_coln_cntrl_and_addr[0].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[0].g_sym_data.g_sym_data_casc.i_data_sym_casc_dly |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[1].g_coln_cntrl_and_addr[1].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[1].g_sym_data.g_sym_data_casc.i_data_sym_casc_dly |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[2].g_coln_cntrl_and_addr[2].i_coln_cntrl_and_addr |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[2].g_wrap_buff.i_data_wrap_buff                   |    <0.001 |
+|             g_buff.i_buff                                                                                           |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_madd_array_and_accum.g_accum.i_accum                                |    <0.001 |
+|             i_add_accum                                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_madd_array_and_accum.g_madd[0].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_madd_array_and_accum.g_madd[1].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_madd_array_and_accum.g_madd[2].i_madd                               |    <0.001 |
+|             i_addsub_mult_add                                                                                       |    <0.001 |
+|               g_dsp48.g_preadd.i_preadd                                                                             |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |     0.000 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.g_paths[1].g_mem_array[1].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |     0.000 |
+|           g_semi_parallel_and_smac.g_paths[1].g_mem_array[2].i_mem                                                  |    <0.001 |
+|             g_individual.g_mem_b.i_mem_b                                                                            |    <0.001 |
+|             g_individual.i_mem_a                                                                                    |    <0.001 |
+|           g_semi_parallel_and_smac.i_accumulate                                                                     |    <0.001 |
+|           g_semi_parallel_and_smac.i_cntrl_coef_addr                                                                |    <0.001 |
+|           g_semi_parallel_and_smac.i_latch_op                                                                       |    <0.001 |
+|           g_semi_parallel_and_smac.i_load                                                                           |    <0.001 |
++---------------------------------------------------------------------------------------------------------------------+-----------+
+
+

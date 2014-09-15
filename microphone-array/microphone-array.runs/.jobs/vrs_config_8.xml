@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="cascaded_integrator_comb_synth_1" LaunchDir="C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/cascaded_integrator_comb_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="cascaded_integrator_comb_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/impl_1" FlowId="Vivado Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+		<Parent Id="synth_1"/>
+	</Run>
+</Runs>
+
