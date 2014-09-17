@@ -462,11 +462,30 @@ set_property PACKAGE_PIN E3 [get_ports clk]
 	#set_property IOSTANDARD LVCMOS33 [get_ports tmpCT]
 
 
-set_property PACKAGE_PIN J5 [get_ports mic_clk]						
-	set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
-set_property PACKAGE_PIN H5 [get_ports mic_data]					
-	set_property IOSTANDARD LVCMOS33 [get_ports mic_data]
-set_property PACKAGE_PIN F5 [get_ports micLRSel]					
+#set_property PACKAGE_PIN J5 [get_ports mic_clk]						
+	#set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
+#set_property PACKAGE_PIN H5 [get_ports mic_data]					
+	#set_property IOSTANDARD LVCMOS33 [get_ports mic_data]
+
+# board
+set_property PACKAGE_PIN G14 [get_ports mic_clk]
+    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
+set_property PACKAGE_PIN P15 [get_ports {mic_data[0]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[0]}]
+set_property PACKAGE_PIN V11 [get_ports {mic_data[1]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[1]}]
+set_property PACKAGE_PIN V15 [get_ports {mic_data[2]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[2]}]
+set_property PACKAGE_PIN K16 [get_ports {mic_data[3]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[3]}]
+set_property PACKAGE_PIN R16 [get_ports {mic_data[4]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[4]}]
+set_property PACKAGE_PIN T9  [get_ports {mic_data[5]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[5]}]
+set_property PACKAGE_PIN U11 [get_ports {mic_data[6]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[6]}]
+            
+set_property PACKAGE_PIN F5 [get_ports micLRSel]
     set_property IOSTANDARD LVCMOS33 [get_ports micLRSel]
 	
 ##Omnidirectional Microphone

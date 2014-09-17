@@ -167,9 +167,9 @@ begin
         end loop;
         ip_count := ip_count + 1;
         wait for T_HOLD;
-      -- Input rate is 1 input each 31 clock cycles: drive valid inputs at this rate
+      -- Input rate is 1 input each 32 clock cycles: drive valid inputs at this rate
         s_axis_data_tvalid <= '0';
-        wait for CLOCK_PERIOD * 30;
+        wait for CLOCK_PERIOD * 31;
         exit when ip_count >= samples;
       end loop;
     end procedure drive_data;
@@ -206,10 +206,10 @@ begin
     -- Drive another impulse, during which demonstrate use and effect of AXI handshaking signals
     drive_impulse(2);  -- start of impulse; data is now zero
     s_axis_data_tvalid <= '0';
-    wait for CLOCK_PERIOD * 155;  -- provide no data for 5 input samples worth
+    wait for CLOCK_PERIOD * 160;  -- provide no data for 5 input samples worth
     drive_zeros(2);  -- 2 normal input samples
     s_axis_data_tvalid <= '1';
-    wait for CLOCK_PERIOD * 155;  -- provide data as fast as the core can accept it for 5 input samples worth
+    wait for CLOCK_PERIOD * 160;  -- provide data as fast as the core can accept it for 5 input samples worth
     drive_zeros(159);  -- back to normal operation
 
     -- End of test

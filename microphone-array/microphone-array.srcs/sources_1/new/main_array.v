@@ -23,100 +23,157 @@
 module main_array(
     input clk,
     output reg mic_clk,
-    input mic_data,
+    input [6:0] mic_data,
     output micLRSel,
     output ampPWM,
     output ampSD
     );
     
     assign micLRSel = 1'b0;
-    reg mic_data_reg;
+    //assign mic_clk = clk_6_144;
+    //reg mic_data_reg;
     
-    // 50 MHz on clk input
+    // 100 MHz on clk input
     // we want around 3 MHz for mic clocks
     // 50 MHz/16 = 3.125 MHz
-    reg [5:0] clk_divider;
-    reg [7:0] mic_datum;
-    reg mic_datum_valid;
-    wire mic_datum_ready;
-    wire cic_datum_valid;
-    wire cic_datum_ready;
-    wire hb_datum_valid;
-    wire hb_datum_ready;
-    wire lp_datum_ready;
+    // 100 MHz/16 = 6.25 MHz
+    //reg [6:0] clk_divider;
     
-    wire [23:0] cic_output;
-    wire [23:0] hb_output;
-    wire [23:0] lp_output;
-    wire [15:0] hp_output;
+    // get 6.144 MHz clock
+    wire clk_6_144;
     
-    cascaded_integrator_comb cic_filter(.aclk(mic_clk), 
-                                        .s_axis_data_tdata(mic_datum),
-                                        .s_axis_data_tvalid(1'b1),
-                                        .s_axis_data_tready(mic_datum_ready),
-                                        .m_axis_data_tdata(cic_output),
-                                        .m_axis_data_tvalid(cic_datum_valid)
-                                        );
+    clk_wiz_0 clk_gen(.clk_in1(clk), .clk_out1(clk_6_144));
     
-    half_band_FIR             hb_filter(.aclk(mic_clk),
-                                        .s_axis_data_tdata(cic_output),
-                                        .s_axis_data_tvalid(cic_datum_valid),
-                                        .s_axis_data_tready(cic_datum_ready),
-                                        .m_axis_data_tdata(hb_output),
-                                        .m_axis_data_tvalid(hb_datum_valid)
-                                        );
-    
-    lp_FIR                    lp_filter(.aclk(mic_clk),
-                                        .s_axis_data_tdata(hb_output),
-                                        .s_axis_data_tvalid(hb_datum_valid),
-                                        .s_axis_data_tready(hb_datum_ready),
-                                        .m_axis_data_tdata(lp_output),
-                                        .m_axis_data_tvalid(lp_datum_valid)
-                                        );
-                                        
-    hp_rc                     hp_filter(.clk_i(mic_clk),
-                                        .rst_i(1'b0),
-                                        .en_i(lp_datum_valid),
-                                        .data_i(lp_output[16:1]),
-                                        .data_o(hp_output)
-                                        );
-                                        
-    //PORT (
-//        aclk : IN STD_LOGIC;
-//        s_axis_data_tdata : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-//        s_axis_data_tvalid : IN STD_LOGIC;
-//        s_axis_data_tready : OUT STD_LOGIC;
-//        m_axis_data_tdata : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-//        m_axis_data_tvalid : OUT STD_LOGIC
-    //  );
-    
-    
-    
+    parameter TOTAL_MICS = 13;
+    //parameter MIC_WIDTH = $clog2(TOTAL_MICS);
+
+    genvar i;
+    generate
+        reg [7:0] mic_datum[0:TOTAL_MICS];
+        //reg mic_datum_valid;
+        wire mic_datum_ready[0:TOTAL_MICS];
+        wire cic_datum_valid[0:TOTAL_MICS];
+        wire cic_datum_ready[0:TOTAL_MICS];
+        wire hb_datum_valid[0:TOTAL_MICS];
+        wire hb_datum_ready[0:TOTAL_MICS];
+        wire lp_datum_valid[0:TOTAL_MICS];
+        wire lp_datum_ready[0:TOTAL_MICS];
+        
+        wire [23:0] cic_output[0:TOTAL_MICS];
+        wire [23:0] hb_output[0:TOTAL_MICS];
+        wire [23:0] lp_output[0:TOTAL_MICS];
+        wire [15:0] hp_output[0:TOTAL_MICS];
+        reg [15:0] sum_out;
+        
+        for(i = 0; i < TOTAL_MICS; i = i+1) begin
+            cascaded_integrator_comb cic_filter(.aclk(mic_clk), 
+                                                .s_axis_data_tdata(mic_datum[i]),
+                                                .s_axis_data_tvalid(1'b1),
+                                                .s_axis_data_tready(mic_datum_ready[i]),
+                                                .m_axis_data_tdata(cic_output[i]),
+                                                .m_axis_data_tvalid(cic_datum_valid[i])
+                                                );
+            half_band_FIR             hb_filter(.aclk(mic_clk),
+                                                .s_axis_data_tdata(cic_output[i]),
+                                                .s_axis_data_tvalid(cic_datum_valid[i]),
+                                                .s_axis_data_tready(cic_datum_ready[i]),
+                                                .m_axis_data_tdata(hb_output[i]),
+                                                .m_axis_data_tvalid(hb_datum_valid[i])
+                                                );
+            lp_FIR                    lp_filter(.aclk(mic_clk),
+                                                .s_axis_data_tdata(hb_output[i]),
+                                                .s_axis_data_tvalid(hb_datum_valid[i]),
+                                                .s_axis_data_tready(hb_datum_ready[i]),
+                                                .m_axis_data_tdata(lp_output[i]),
+                                                .m_axis_data_tvalid(lp_datum_valid[i])
+                                                );
+            hp_rc                     hp_filter(.clk_i(mic_clk),
+                                                .rst_i(1'b0),
+                                                .en_i(lp_datum_valid[i]),
+                                                .data_i(lp_output[i][16:1]),
+                                                .data_o(hp_output[i])
+                                                );
+        end
+    endgenerate
+
     initial begin
-        mic_datum = 8'b00000011;
-        clk_divider = 0;
-        hp_en = 0;
+        /*for(j = 0; j < TOTAL_MICS; j = j+1) begin
+            mic_datum[j] = 8'b00000011;
+        end*/
+        mic_datum[0] = 8'b00000011;
+        mic_datum[1] = 8'b00000011;
+        mic_datum[2] = 8'b00000011;
+        mic_datum[3] = 8'b00000011;
+        mic_datum[4] = 8'b00000011;
+        mic_datum[5] = 8'b00000011;
+        mic_datum[6] = 8'b00000011;
+        mic_datum[7] = 8'b00000011;
+        mic_datum[8] = 8'b00000011;
+        mic_datum[9] = 8'b00000011;
+        mic_datum[10] = 8'b00000011;
+        mic_datum[11] = 8'b00000011;
+        mic_datum[12] = 8'b00000011;
+        //clk_divider = 0;
+        //hp_en = 0;
     end
     
     
-    always @(posedge clk) begin
+    /*always @(posedge clk) begin
         // clock divide down to 6.25 mhz, then toggle at that speed to get 3.125 MHz
         clk_divider = clk_divider + 1;
-        if (clk_divider == 8) begin
+        if (clk_divider == 16) begin
             clk_divider = 0;
-            mic_clk = ~mic_clk;
+            //mic_clk = ~mic_clk;
         end
+    end*/
+    
+    // the part where we actually grab the mic input
+    always @(posedge clk_6_144) begin
+        //mic_datum_valid = 0;
+        //mic_datum[1] = mic_data;
+        
+        //mic_datum_valid = 1;
+        mic_clk = ~mic_clk; // 3.072 MHz
+    end
+
+    always @(posedge mic_clk) begin
+        // see chart
+        mic_datum[0][7:1] = { 7 {~mic_data[6]}};
+        mic_datum[2][7:1] = { 7 {~mic_data[5]}};
+        mic_datum[4][7:1] = { 7 {~mic_data[1]}};
+        mic_datum[5][7:1] = { 7 {~mic_data[0]}};
+        mic_datum[8][7:1] = { 7 {~mic_data[2]}};
+        mic_datum[10][7:1] = { 7 {~mic_data[4]}};
+        mic_datum[12][7:1] = { 7 {~mic_data[3]}};
     end
     
-    always @(posedge mic_clk) begin
-        mic_datum_valid = 0;
-        //mic_datum[1] = mic_data;
-        mic_datum[7:1] = { 7 {~mic_data}};
-        mic_datum_valid = 1;
+    always @(negedge mic_clk) begin
+        mic_datum[1][7:1] = { 7 {~mic_data[5]}};
+        mic_datum[3][7:1] = { 7 {~mic_data[4]}};
+        mic_datum[6][7:1] = { 7 {~mic_data[0]}};
+        mic_datum[7][7:1] = { 7 {~mic_data[2]}};
+        mic_datum[9][7:1] = { 7 {~mic_data[1]}};
+        mic_datum[11][7:1] = { 7 {~mic_data[3]}};
     end
     
     // delta sigma the output
-    delta_sigma audio_out(.clk_i(mic_clk), .din(hp_output), .dout(ampPWM));
+    always @(posedge clk) begin
+        sum_out = hp_output[0]+
+                  hp_output[1]+
+                  hp_output[2]+
+                  hp_output[3]+
+                  hp_output[4]+
+                  hp_output[5]+
+                  hp_output[6]+
+                  hp_output[7]+
+                  hp_output[8]+
+                  hp_output[9]+
+                  hp_output[10]+
+                  hp_output[11]+
+                  hp_output[12];
+    end
+    
+    delta_sigma audio_out(.clk_i(clk), .din(sum_out), .dout(ampPWM));
     
     /*always @(posedge mic_clk) begin
         mic_data_reg <= mic_data;

@@ -1,10 +1,10 @@
 -- Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
--- Date        : Sun Sep 14 14:58:22 2014
+-- Date        : Tue Sep 16 15:43:19 2014
 -- Host        : ECE-411-6 running 64-bit Service Pack 1  (build 7601)
 -- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/half_band_FIR/half_band_FIR_stub.vhdl
+--               C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.srcs/sources_1/ip/half_band_FIR/half_band_FIR_stub.vhdl
 -- Design      : half_band_FIR
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1
