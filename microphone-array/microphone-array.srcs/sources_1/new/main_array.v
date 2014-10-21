@@ -23,7 +23,9 @@
 module main_array(
     input clk,
     output reg mic_clk,
-    input [6:0] mic_data,
+    input [12:0] mic_data,
+    input [12:0] mic_sel,
+    output reg [15:0] led_out,
     output micLRSel,
     output ampPWM,
     output ampSD
@@ -41,16 +43,16 @@ module main_array(
     
     // get 6.144 MHz clock
     wire clk_6_144;
+    reg clk_3_072;
     
     clk_wiz_0 clk_gen(.clk_in1(clk), .clk_out1(clk_6_144));
     
-    parameter TOTAL_MICS = 13;
+    parameter TOTAL_MICS = 13; //13;
     //parameter MIC_WIDTH = $clog2(TOTAL_MICS);
 
     genvar i;
     generate
         reg [7:0] mic_datum[0:TOTAL_MICS];
-        //reg mic_datum_valid;
         wire mic_datum_ready[0:TOTAL_MICS];
         wire cic_datum_valid[0:TOTAL_MICS];
         wire cic_datum_ready[0:TOTAL_MICS];
@@ -133,28 +135,35 @@ module main_array(
         //mic_datum[1] = mic_data;
         
         //mic_datum_valid = 1;
-        mic_clk = ~mic_clk; // 3.072 MHz
-    end
-
-    always @(posedge mic_clk) begin
-        // see chart
-        mic_datum[0][7:1] = { 7 {~mic_data[6]}};
-        mic_datum[2][7:1] = { 7 {~mic_data[5]}};
-        mic_datum[4][7:1] = { 7 {~mic_data[1]}};
-        mic_datum[5][7:1] = { 7 {~mic_data[0]}};
-        mic_datum[8][7:1] = { 7 {~mic_data[2]}};
-        mic_datum[10][7:1] = { 7 {~mic_data[4]}};
-        mic_datum[12][7:1] = { 7 {~mic_data[3]}};
+        clk_3_072 = ~clk_3_072; //mic_clk = ~mic_clk; // 3.072 MHz
     end
     
-    always @(negedge mic_clk) begin
-        mic_datum[1][7:1] = { 7 {~mic_data[5]}};
-        mic_datum[3][7:1] = { 7 {~mic_data[4]}};
-        mic_datum[6][7:1] = { 7 {~mic_data[0]}};
-        mic_datum[7][7:1] = { 7 {~mic_data[2]}};
-        mic_datum[9][7:1] = { 7 {~mic_data[1]}};
-        mic_datum[11][7:1] = { 7 {~mic_data[3]}};
+    always @(posedge clk_3_072) begin
+        mic_clk = ~mic_clk;
     end
+
+    //always @(negedge mic_clk) begin
+    always @(negedge clk_3_072 & (mic_clk == 1)) begin
+        // see chart
+        mic_datum[0][7:1] = { 7 {mic_sel[0] ? ~mic_data[0] : 1'b0 }};
+        mic_datum[1][7:1] = { 7 {mic_sel[1] ? ~mic_data[1] : 1'b0 }};
+        mic_datum[2][7:1] = { 7 {mic_sel[2] ? ~mic_data[2] : 1'b0 }};
+        mic_datum[3][7:1] = { 7 {mic_sel[3] ? ~mic_data[3] : 1'b0 }};
+        mic_datum[4][7:1] = { 7 {mic_sel[4] ? ~mic_data[4] : 1'b0 }};
+        mic_datum[5][7:1] = { 7 {mic_sel[5] ? ~mic_data[5] : 1'b0 }};
+        mic_datum[6][7:1] = { 7 {mic_sel[6] ? ~mic_data[6] : 1'b0 }};
+        mic_datum[7][7:1] = { 7 {mic_sel[7] ? ~mic_data[7] : 1'b0 }};
+        mic_datum[8][7:1] = { 7 {mic_sel[8] ? ~mic_data[8] : 1'b0 }};
+        mic_datum[9][7:1] = { 7 {mic_sel[9] ? ~mic_data[9] : 1'b0 }};
+        mic_datum[10][7:1] = { 7 {mic_sel[10] ? ~mic_data[10] : 1'b0 }};
+        mic_datum[11][7:1] = { 7 {mic_sel[11] ? ~mic_data[11] : 1'b0 }};
+        mic_datum[12][7:1] = { 7 {mic_sel[12] ? ~mic_data[12] : 1'b0 }};
+    end
+    
+    //always @(posedge mic_clk) begin
+    /*always @(negedge clk_3_072 & (mic_clk == 0)) begin
+        
+    end*/
     
     // delta sigma the output
     always @(posedge clk) begin
@@ -171,6 +180,7 @@ module main_array(
                   hp_output[10]+
                   hp_output[11]+
                   hp_output[12];
+        led_out = sum_out[15] ? ~sum_out[15:0] : sum_out[15:0]; 
     end
     
     delta_sigma audio_out(.clk_i(clk), .din(sum_out), .dout(ampPWM));
