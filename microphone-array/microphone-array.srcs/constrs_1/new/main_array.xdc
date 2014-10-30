@@ -467,51 +467,91 @@ set_property PACKAGE_PIN P2 [get_ports {led_out[15]}]
 #set_property PACKAGE_PIN H5 [get_ports mic_data]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports mic_data]
 
-# board
-set_property PACKAGE_PIN G14 [get_ports {mic_data[3]}]
-    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[3]}]
-    #set_property SLEW FAST [get_ports mic_clk]
-    #set_property DRIVE 4 [get_ports mic_clk]
+# DOUBLE BOARD TESTY TEST
+set_property PACKAGE_PIN G14 [get_ports mic_clk]
+    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
+set_property PACKAGE_PIN G13 [get_ports mic_clk2]
+    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk2]
+
 set_property PACKAGE_PIN P15 [get_ports {mic_data[0]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[0]}]
 set_property PACKAGE_PIN V11 [get_ports {mic_data[1]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[1]}]
-set_property PACKAGE_PIN V15 [get_ports {mic_data[2]}]
+    
+set_property PACKAGE_PIN R16 [get_ports {mic_data[2]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[2]}]
-set_property PACKAGE_PIN K16 [get_ports mic_clk]
-    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
-set_property PACKAGE_PIN R16 [get_ports {mic_data[4]}]
+set_property PACKAGE_PIN T9  [get_ports {mic_data[3]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[3]}]
+set_property PACKAGE_PIN U11 [get_ports {mic_data[4]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[4]}]
-set_property PACKAGE_PIN T9  [get_ports {mic_data[5]}]
+set_property PACKAGE_PIN A13 [get_ports {mic_data[5]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[5]}]
-#set_property PACKAGE_PIN U11 [get_ports {mic_data[6]}]
-    #set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[6]}]
-            
-##Pmod Header JA
-##Bank = 15, Pin name = IO_L1N_T0_AD0N_15,                    Sch name = JA1
-set_property PACKAGE_PIN B13 [get_ports {mic_data[6]}]                    
+set_property PACKAGE_PIN A15 [get_ports {mic_data[6]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[6]}]
-##Bank = 15, Pin name = IO_L5N_T0_AD9N_15,                    Sch name = JA2
-set_property PACKAGE_PIN F14 [get_ports {mic_data[7]}]                    
+set_property PACKAGE_PIN B16 [get_ports {mic_data[7]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[7]}]
-##Bank = 15, Pin name = IO_L16N_T2_A27_15,                    Sch name = JA3
-set_property PACKAGE_PIN D17 [get_ports {mic_data[8]}]                    
+set_property PACKAGE_PIN B18 [get_ports {mic_data[8]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[8]}]
-##Bank = 15, Pin name = IO_L16P_T2_A28_15,                    Sch name = JA4
-set_property PACKAGE_PIN E17 [get_ports {mic_data[9]}]                    
+set_property PACKAGE_PIN A14 [get_ports {mic_data[9]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[9]}]
-##Bank = 15, Pin name = IO_0_15,                                Sch name = JA7
-set_property PACKAGE_PIN G13 [get_ports {mic_data[10]}]                    
+set_property PACKAGE_PIN A16 [get_ports {mic_data[10]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[10]}]
-##Bank = 15, Pin name = IO_L20N_T3_A19_15,                    Sch name = JA8
-set_property PACKAGE_PIN C17 [get_ports {mic_data[11]}]                    
+set_property PACKAGE_PIN B17 [get_ports {mic_data[11]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[11]}]
-##Bank = 15, Pin name = IO_L21N_T3_A17_15,                    Sch name = JA9
-set_property PACKAGE_PIN D18 [get_ports {mic_data[12]}]                    
+set_property PACKAGE_PIN K16 [get_ports {mic_data[12]}]
     set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[12]}]
-##Bank = 15, Pin name = IO_L21P_T3_DQS_15,                    Sch name = JA10
-#set_property PACKAGE_PIN E18 [get_ports {JA[7]}]                    
-    #set_property IOSTANDARD LVCMOS33 [get_ports {JA[7]}]
+    
+
+
+
+
+## board
+#set_property PACKAGE_PIN G14 [get_ports {mic_data[3]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[3]}]
+#    #set_property SLEW FAST [get_ports mic_clk]
+#    #set_property DRIVE 4 [get_ports mic_clk]
+#set_property PACKAGE_PIN P15 [get_ports {mic_data[0]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[0]}]
+#set_property PACKAGE_PIN V11 [get_ports {mic_data[1]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[1]}]
+#set_property PACKAGE_PIN V15 [get_ports {mic_data[2]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[2]}]
+#set_property PACKAGE_PIN K16 [get_ports mic_clk]
+#    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk]
+#    set_property SLEW FAST [get_ports mic_clk]
+#set_property PACKAGE_PIN R16 [get_ports {mic_data[4]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[4]}]
+#set_property PACKAGE_PIN T9  [get_ports {mic_data[5]}]
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[5]}]
+#set_property PACKAGE_PIN U11 [get_ports mic_clk2]
+#    set_property IOSTANDARD LVCMOS33 [get_ports mic_clk2]
+#    #set_property DRIVE 4 [get_ports mic_clk]
+            
+###Pmod Header JA
+###Bank = 15, Pin name = IO_L1N_T0_AD0N_15,                    Sch name = JA1
+#set_property PACKAGE_PIN B13 [get_ports {mic_data[6]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[6]}]
+###Bank = 15, Pin name = IO_L5N_T0_AD9N_15,                    Sch name = JA2
+#set_property PACKAGE_PIN F14 [get_ports {mic_data[7]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[7]}]
+###Bank = 15, Pin name = IO_L16N_T2_A27_15,                    Sch name = JA3
+#set_property PACKAGE_PIN D17 [get_ports {mic_data[8]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[8]}]
+###Bank = 15, Pin name = IO_L16P_T2_A28_15,                    Sch name = JA4
+#set_property PACKAGE_PIN E17 [get_ports {mic_data[9]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[9]}]
+###Bank = 15, Pin name = IO_0_15,                                Sch name = JA7
+#set_property PACKAGE_PIN G13 [get_ports {mic_data[10]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[10]}]
+###Bank = 15, Pin name = IO_L20N_T3_A19_15,                    Sch name = JA8
+#set_property PACKAGE_PIN C17 [get_ports {mic_data[11]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[11]}]
+###Bank = 15, Pin name = IO_L21N_T3_A17_15,                    Sch name = JA9
+#set_property PACKAGE_PIN D18 [get_ports {mic_data[12]}]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports {mic_data[12]}]
+###Bank = 15, Pin name = IO_L21P_T3_DQS_15,                    Sch name = JA10
+##set_property PACKAGE_PIN E18 [get_ports {JA[7]}]                    
+#    #set_property IOSTANDARD LVCMOS33 [get_ports {JA[7]}]
 
 
 set_property PACKAGE_PIN F5 [get_ports micLRSel]
