@@ -23,6 +23,7 @@
 module main_array(
     input clk,
     output reg mic_clk,
+    output mic_clk2,
     input [12:0] mic_data,
     input [12:0] mic_sel,
     output reg [15:0] led_out,
@@ -41,14 +42,18 @@ module main_array(
     // 100 MHz/16 = 6.25 MHz
     //reg [6:0] clk_divider;
     
+    wire mic_clk2;
+    assign mic_clk2 = mic_clk;
+    
     // get 6.144 MHz clock
     wire clk_6_144;
     reg clk_3_072;
     
     clk_wiz_0 clk_gen(.clk_in1(clk), .clk_out1(clk_6_144));
     
-    parameter TOTAL_MICS = 13; //13;
-    //parameter MIC_WIDTH = $clog2(TOTAL_MICS);
+    parameter TOTAL_MICS = 13;
+    
+    reg [6:0] buf_target;
 
     genvar i;
     generate
@@ -65,6 +70,7 @@ module main_array(
         wire [23:0] hb_output[0:TOTAL_MICS];
         wire [23:0] lp_output[0:TOTAL_MICS];
         wire [15:0] hp_output[0:TOTAL_MICS];
+        wire [15:0] beamshift_o[0:TOTAL_MICS];
         reg [15:0] sum_out;
         
         for(i = 0; i < TOTAL_MICS; i = i+1) begin
@@ -95,6 +101,12 @@ module main_array(
                                                 .data_i(lp_output[i][16:1]),
                                                 .data_o(hp_output[i])
                                                 );
+            mic_bram            mic_buffer_bram(.clk(mic_clk),
+                                                .addr_i(buf_target),
+                                                .data_i(hp_output[i]),
+                                                .addr_o(buf_target),
+                                                .data_o(beamshift_o[i])
+                                                );
         end
     endgenerate
 
@@ -115,8 +127,8 @@ module main_array(
         mic_datum[10] = 8'b00000011;
         mic_datum[11] = 8'b00000011;
         mic_datum[12] = 8'b00000011;
-        //clk_divider = 0;
-        //hp_en = 0;
+        
+        buf_target = 0;
     end
     
     
@@ -128,6 +140,11 @@ module main_array(
             //mic_clk = ~mic_clk;
         end
     end*/
+    
+    always @(negedge lp_datum_valid[0]) begin
+        //
+        buf_target <= buf_target + 1'b1;
+    end
     
     // the part where we actually grab the mic input
     always @(posedge clk_6_144) begin
@@ -167,19 +184,19 @@ module main_array(
     
     // delta sigma the output
     always @(posedge clk) begin
-        sum_out = hp_output[0]+
-                  hp_output[1]+
-                  hp_output[2]+
-                  hp_output[3]+
-                  hp_output[4]+
-                  hp_output[5]+
-                  hp_output[6]+
-                  hp_output[7]+
-                  hp_output[8]+
-                  hp_output[9]+
-                  hp_output[10]+
-                  hp_output[11]+
-                  hp_output[12];
+        sum_out = beamshift_o[0]+
+                  beamshift_o[1]+
+                  beamshift_o[2]+
+                  beamshift_o[3]+
+                  beamshift_o[4]+
+                  beamshift_o[5]+
+                  beamshift_o[6]+
+                  beamshift_o[7]+
+                  beamshift_o[8]+
+                  beamshift_o[9]+
+                  beamshift_o[10]+
+                  beamshift_o[11]+
+                  beamshift_o[12];
         led_out = sum_out[15] ? ~sum_out[15:0] : sum_out[15:0]; 
     end
     
