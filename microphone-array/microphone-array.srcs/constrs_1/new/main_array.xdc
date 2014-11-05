@@ -159,8 +159,8 @@ set_property PACKAGE_PIN L6 [get_ports {seg[6]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {seg[6]}]
 
 ##Bank = 34, Pin name = IO_L16P_T2_34,						Sch name = DP
-#set_property PACKAGE_PIN M4 [get_ports dp]							
-	#set_property IOSTANDARD LVCMOS33 [get_ports dp]
+set_property PACKAGE_PIN M4 [get_ports {seg[7]}]							
+	set_property IOSTANDARD LVCMOS33 [get_ports {seg[7]}]
 
 ##Bank = 34, Pin name = IO_L18N_T2_34,						Sch name = AN0
 set_property PACKAGE_PIN N6 [get_ports {an[0]}]					
@@ -172,20 +172,20 @@ set_property PACKAGE_PIN M6 [get_ports {an[1]}]
 set_property PACKAGE_PIN M3 [get_ports {an[2]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {an[2]}]
 ##Bank = 34, Pin name = IO_L13_T2_MRCC_34,					Sch name = AN3
-#set_property PACKAGE_PIN N5 [get_ports {an[3]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {an[3]}]
+set_property PACKAGE_PIN N5 [get_ports {an[3]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {an[3]}]
 ##Bank = 34, Pin name = IO_L3P_T0_DQS_34,					Sch name = AN4
-#set_property PACKAGE_PIN N2 [get_ports {an[4]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {an[4]}]
+set_property PACKAGE_PIN N2 [get_ports {an[4]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {an[4]}]
 ##Bank = 34, Pin name = IO_L16N_T2_34,						Sch name = AN5
-#set_property PACKAGE_PIN N4 [get_ports {an[5]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {an[5]}]
+set_property PACKAGE_PIN N4 [get_ports {an[5]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {an[5]}]
 ##Bank = 34, Pin name = IO_L1P_T0_34,						Sch name = AN6
-#set_property PACKAGE_PIN L1 [get_ports {an[6]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {an[6]}]
+set_property PACKAGE_PIN L1 [get_ports {an[6]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {an[6]}]
 ##Bank = 34, Pin name = IO_L1N_T034,							Sch name = AN7
-#set_property PACKAGE_PIN M1 [get_ports {an[7]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {an[7]}]
+set_property PACKAGE_PIN M1 [get_ports {an[7]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {an[7]}]
 
 
 

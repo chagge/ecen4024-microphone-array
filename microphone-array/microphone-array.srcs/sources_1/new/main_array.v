@@ -30,8 +30,8 @@ module main_array(
     output micLRSel,
     output ampPWM,
     output ampSD,
-    output [2:0] an,
-    output [6:0] seg,
+    output [7:0] an,
+    output [7:0] seg,
     output lp_datum
     );
     
@@ -199,12 +199,7 @@ module main_array(
         // 1.536 MHz
         // each cycle, adjust the time shifted buffer addresses if we aren't about to put out audio.
         khz_datum_delay = {khz_datum_delay[1:0], lp_datum_valid[0]};
-        shift_val = shift_val + 1;
-        if (shift_val == 18) begin
-            shift_val = 0;
-            shift_ang = ~shift_ang;
-            shift_cycle_count = shift_cycle_count + 1;
-        end
+        
         buf_target_offset[0] = (khz_datum_delay == 3'b001 ? buf_target : (shift_ang ? buf_target - shift_val * 6 : buf_target                ));
         buf_target_offset[1] = (khz_datum_delay == 3'b001 ? buf_target : (shift_ang ? buf_target - shift_val * 5 : buf_target - shift_val    ));
         buf_target_offset[2] = (khz_datum_delay == 3'b001 ? buf_target : (shift_ang ? buf_target - shift_val * 4 : buf_target - shift_val * 2));
@@ -250,7 +245,13 @@ module main_array(
                     calc_shift_val <= shift_val;
                 end
             end
-        end         
+        end
+        shift_val = shift_val + 1;
+        if (shift_val == 18) begin
+            shift_val = 0;
+            shift_ang = ~shift_ang;
+            shift_cycle_count = shift_cycle_count + 1;
+        end
     end
     
     delta_sigma audio_out(.clk_i(clk), .din(aud_sum_out), .dout(ampPWM));
