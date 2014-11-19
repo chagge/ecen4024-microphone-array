@@ -59,7 +59,9 @@ module seven_seg(
                     3'b010: segments = 8'b1010_0100;
                     3'b011: segments = 8'b1011_0000;
                     3'b100: segments = 8'b1001_1001;
-                    
+                    3'b101: segments = 8'b1001_0010;
+                    3'b110: segments = 8'b1000_0010;
+                    3'b111: segments = 8'b1111_1000;                    
                     default: segments = 8'b1111_1111;
                 endcase
                 gotostate = 4'b1011;

@@ -53,7 +53,7 @@ module main_array(
     wire clk_6_144;
     reg clk_3_072;
     
-    clk_wiz_0 clk_gen(.clk_in1(clk), .clk_out1(clk_6_144));
+    clk_wiz_0 clk_gen(.clk_in1(clk), .clk_out1(clk_6_144), .reset(1'b0));
     
     parameter TOTAL_MICS = 13;
     
@@ -91,6 +91,8 @@ module main_array(
     wire [15:0] hp_output[0:TOTAL_MICS];
     wire [15:0] beamshift_o[0:TOTAL_MICS];
     reg [6:0] buf_target_offset[0:TOTAL_MICS]; // time-shifted addresses to pull from audio buffer
+    
+    reg [31:0] shift_ang_bucket[0:34]; // sum buckets for each angle ("0"+17+17)
 
     genvar i;
     generate    
@@ -214,24 +216,32 @@ module main_array(
         buf_target_offset[11] = buf_target;
         buf_target_offset[12] = buf_target;
         
-        sum_out = beamshift_o[0]+
-                  beamshift_o[1]+
-                  beamshift_o[2]+
-                  beamshift_o[3]+
-                  beamshift_o[4]+
-                  beamshift_o[5]+
-                  beamshift_o[6]+
-                  beamshift_o[7]+
-                  beamshift_o[8]+
-                  beamshift_o[9]+
-                  beamshift_o[10]+
-                  beamshift_o[11]+
-                  beamshift_o[12];
+        
         if (khz_datum_delay == 3'b010) begin
+            sum_out = beamshift_o[0]+
+                      beamshift_o[1]+
+                      beamshift_o[2]+
+                      beamshift_o[3]+
+                      beamshift_o[4]+
+                      beamshift_o[5]+
+                      beamshift_o[6]+
+                      beamshift_o[7]+
+                      beamshift_o[8]+
+                      beamshift_o[9]+
+                      beamshift_o[10]+
+                      beamshift_o[11]+
+                      beamshift_o[12];
             aud_sum_out = sum_out[15:0];
             led_out = aud_sum_out[15] ? ~aud_sum_out[15:0] : aud_sum_out[15:0];
         end else begin
-            if (shift_cycle_count == 24000) begin
+            sum_out = (beamshift_o[0][15] ? ~beamshift_o[0] : beamshift_o[0]) +
+                      (beamshift_o[1][15] ? ~beamshift_o[1] : beamshift_o[1]) +
+                      (beamshift_o[2][15] ? ~beamshift_o[2] : beamshift_o[2]) +
+                      (beamshift_o[3][15] ? ~beamshift_o[3] : beamshift_o[3]) +
+                      (beamshift_o[4][15] ? ~beamshift_o[4] : beamshift_o[4]) +
+                      (beamshift_o[5][15] ? ~beamshift_o[5] : beamshift_o[5]) +
+                      (beamshift_o[6][15] ? ~beamshift_o[6] : beamshift_o[6]);
+            if (shift_cycle_count == 48000) begin // about 1 sec
                 shift_cycle_count = 0;
                 max_shift_ang = calc_shift_ang;
                 max_shift_val = calc_shift_val;
@@ -248,7 +258,10 @@ module main_array(
         end
         shift_val = shift_val + 1;
         if (shift_val == 18) begin
-            shift_val = 0;
+            if (shift_ang)
+                shift_val = 1;
+            else
+                shift_val = 0;
             shift_ang = ~shift_ang;
             shift_cycle_count = shift_cycle_count + 1;
         end
