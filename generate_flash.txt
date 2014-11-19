@@ -1,0 +1,2 @@
+cd C:/Users/coltmw/Documents/GitHub/ecen4024-microphone-array/microphone-array/microphone-array.runs/impl_1
+write_cfgmem -force -format mcs -interface spix4 -size 16 -loadbit "up 0x0 ./main_array.bit" -file main_array.mcs
