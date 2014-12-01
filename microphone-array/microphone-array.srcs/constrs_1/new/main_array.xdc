@@ -53,14 +53,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports {mic_sel[11]}]
 set_property PACKAGE_PIN T1 [get_ports {mic_sel[12]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {mic_sel[12]}]
 ##Bank = 34, Pin name = IO_L11P_T1_SRCC_34,					Sch name = SW13
-#set_property PACKAGE_PIN R3 [get_ports {sw[13]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[13]}]
+set_property PACKAGE_PIN R3 [get_ports {mic_sel[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {mic_sel[13]}]
 ##Bank = 34, Pin name = IO_L14N_T2_SRCC_34,					Sch name = SW14
-#set_property PACKAGE_PIN P3 [get_ports {sw[14]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[14]}]
+set_property PACKAGE_PIN P3 [get_ports {mic_sel[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {mic_sel[14]}]
 ##Bank = 34, Pin name = IO_L14P_T2_SRCC_34,					Sch name = SW15
-#set_property PACKAGE_PIN P4 [get_ports {sw[15]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
+set_property PACKAGE_PIN P4 [get_ports {mic_sel[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {mic_sel[15]}]
 
 
 
@@ -353,47 +353,47 @@ set_property IOSTANDARD LVCMOS33 [get_ports lp_datum]
 
 ##VGA Connector
 ##Bank = 35, Pin name = IO_L8N_T1_AD14N_35,					Sch name = VGA_R0
-#set_property PACKAGE_PIN A3 [get_ports {vgaRed[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaRed[0]}]
+set_property PACKAGE_PIN A3 [get_ports {rgb[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[8]}]
 ##Bank = 35, Pin name = IO_L7N_T1_AD6N_35,					Sch name = VGA_R1
-#set_property PACKAGE_PIN B4 [get_ports {vgaRed[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaRed[1]}]
+set_property PACKAGE_PIN B4 [get_ports {rgb[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[9]}]
 ##Bank = 35, Pin name = IO_L1N_T0_AD4N_35,					Sch name = VGA_R2
-#set_property PACKAGE_PIN C5 [get_ports {vgaRed[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaRed[2]}]
+set_property PACKAGE_PIN C5 [get_ports {rgb[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[10]}]
 ##Bank = 35, Pin name = IO_L8P_T1_AD14P_35,					Sch name = VGA_R3
-#set_property PACKAGE_PIN A4 [get_ports {vgaRed[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaRed[3]}]
+set_property PACKAGE_PIN A4 [get_ports {rgb[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[11]}]
 ##Bank = 35, Pin name = IO_L2P_T0_AD12P_35,					Sch name = VGA_B0
-#set_property PACKAGE_PIN B7 [get_ports {vgaBlue[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaBlue[0]}]
+set_property PACKAGE_PIN B7 [get_ports {rgb[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[0]}]
 ##Bank = 35, Pin name = IO_L4N_T0_35,						Sch name = VGA_B1
-#set_property PACKAGE_PIN C7 [get_ports {vgaBlue[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaBlue[1]}]
+set_property PACKAGE_PIN C7 [get_ports {rgb[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[1]}]
 ##Bank = 35, Pin name = IO_L6N_T0_VREF_35,					Sch name = VGA_B2
-#set_property PACKAGE_PIN D7 [get_ports {vgaBlue[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaBlue[2]}]
+set_property PACKAGE_PIN D7 [get_ports {rgb[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[2]}]
 ##Bank = 35, Pin name = IO_L4P_T0_35,						Sch name = VGA_B3
-#set_property PACKAGE_PIN D8 [get_ports {vgaBlue[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaBlue[3]}]
+set_property PACKAGE_PIN D8 [get_ports {rgb[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[3]}]
 ##Bank = 35, Pin name = IO_L1P_T0_AD4P_35,					Sch name = VGA_G0
-#set_property PACKAGE_PIN C6 [get_ports {vgaGreen[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaGreen[0]}]
+set_property PACKAGE_PIN C6 [get_ports {rgb[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[4]}]
 ##Bank = 35, Pin name = IO_L3N_T0_DQS_AD5N_35,				Sch name = VGA_G1
-#set_property PACKAGE_PIN A5 [get_ports {vgaGreen[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaGreen[1]}]
+set_property PACKAGE_PIN A5 [get_ports {rgb[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[5]}]
 ##Bank = 35, Pin name = IO_L2N_T0_AD12N_35,					Sch name = VGA_G2
-#set_property PACKAGE_PIN B6 [get_ports {vgaGreen[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaGreen[2]}]
+set_property PACKAGE_PIN B6 [get_ports {rgb[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[6]}]
 ##Bank = 35, Pin name = IO_L3P_T0_DQS_AD5P_35,				Sch name = VGA_G3
-#set_property PACKAGE_PIN A6 [get_ports {vgaGreen[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {vgaGreen[3]}]
+set_property PACKAGE_PIN A6 [get_ports {rgb[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rgb[7]}]
 ##Bank = 15, Pin name = IO_L4P_T0_15,						Sch name = VGA_HS
-#set_property PACKAGE_PIN B11 [get_ports Hsync]
-#set_property IOSTANDARD LVCMOS33 [get_ports Hsync]
+set_property PACKAGE_PIN B11 [get_ports hs]
+set_property IOSTANDARD LVCMOS33 [get_ports hs]
 ##Bank = 15, Pin name = IO_L3N_T0_DQS_AD1N_15,				Sch name = VGA_VS
-#set_property PACKAGE_PIN B12 [get_ports Vsync]
-#set_property IOSTANDARD LVCMOS33 [get_ports Vsync]
+set_property PACKAGE_PIN B12 [get_ports vs]
+set_property IOSTANDARD LVCMOS33 [get_ports vs]
 
 
 
