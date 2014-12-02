@@ -215,12 +215,12 @@ module main_array(
         buf_target_offset[5] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_shift_val * 2)) : (buf_target - 51 - shift_val * 2));
         buf_target_offset[6] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_shift_val * 3)) : (buf_target - 51 - shift_val * 3));
         
-        buf_target_offset[7] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 3)) : (buf_target - 51 - shift_val * 3));
-        buf_target_offset[8] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 2)) : (buf_target - 51 - shift_val * 2));
-        buf_target_offset[9] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val    )) : (buf_target - 51 - shift_val    ));
-        buf_target_offset[10] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val    )) : (buf_target - 51 + shift_val    ));
-        buf_target_offset[11] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 2)) : (buf_target - 51 + shift_val * 2));
-        buf_target_offset[12] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 3)) : (buf_target - 51 + shift_val * 3));
+        buf_target_offset[7] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 3)) : (buf_target - 51 + shift_val * 3));
+        buf_target_offset[8] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 2)) : (buf_target - 51 + shift_val * 2));
+        buf_target_offset[9] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val    )) : (buf_target - 51 + shift_val    ));
+        buf_target_offset[10] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val    )) : (buf_target - 51 - shift_val    ));
+        buf_target_offset[11] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 2)) : (buf_target - 51 - shift_val * 2));
+        buf_target_offset[12] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 3)) : (buf_target - 51 - shift_val * 3));
         
         
         if (khz_datum_delay == 3'b010) begin
@@ -337,15 +337,41 @@ module main_array(
             0: begin
                 // grey
                 rgb = 12'b0100_0100_0100;
-                //if ((hcount >> 4) <= (MAX_SHIFT*2)) begin
-                if ((hcount >> 3) <= (MAX_SHIFT*4)) begin
-                    if (!mic_sel[13]) begin
+                if (!mic_sel[13]) begin
+                    if (vcount >> 3 <= MAX_SHIFT*2) begin
+                        if (((max_vshift_ang_bucket[vcount >> 3][47] ? ~max_vshift_ang_bucket[vcount >> 3]+1
+                                                                     :  max_vshift_ang_bucket[vcount >> 3]  ) >> 5) > hcount) begin 
+                            if ((vcount >> 3) == (MAX_SHIFT + max_vshift_val))
+                                rgb = 12'b0001_0001_1110;
+                            else if ((vcount >> 3) == MAX_SHIFT) /*should be center*/
+                                rgb = 12'b1100_1100_1100;
+                            else
+                                rgb = 12'b1100_0011_0000;
+                        end
+                    end
+                    if (hcount > 640-MAX_SHIFT*16) begin
+                        // (hcount + MAX_SHIFT*32 - 640) >> 3
+                        if (480-((max_shift_ang_bucket[(hcount + MAX_SHIFT*16 - 640) >> 3][47] ? ~max_shift_ang_bucket[(hcount + MAX_SHIFT*16 - 640) >> 3]+1
+                                                                                               :  max_shift_ang_bucket[(hcount + MAX_SHIFT*16 - 640) >> 3]  ) >> 5) < vcount) begin
+                            if (((hcount + MAX_SHIFT*16 - 640) >> 3) == (MAX_SHIFT + max_shift_val))
+                                rgb = 12'b0001_0001_1110;
+                            else if (((hcount + MAX_SHIFT*16 - 640) >> 3) == MAX_SHIFT) /*should be center*/
+                                rgb = 12'b1100_1100_1100;
+                            else
+                                rgb = 12'b1100_0000_1100;
+                        end
+                    end
+                    
+                    
+                    
+                    /*if ((hcount >> 3) <= (MAX_SHIFT*4)) begin
+                    
                         if ((hcount >> 3) <= MAX_SHIFT*2) begin
                             if (((max_vshift_ang_bucket[hcount >> 3][47] ? ~max_vshift_ang_bucket[hcount >> 3]+1
                                                                          :  max_vshift_ang_bucket[hcount >> 3]  ) >> 5) > vcount) begin 
                                 if ((hcount >> 3) == (MAX_SHIFT + max_vshift_val))
                                     rgb = 12'b0001_0001_1110;
-                                else if ((hcount >> 3) == MAX_SHIFT /*should be center*/)
+                                else if ((hcount >> 3) == MAX_SHIFT)
                                     rgb = 12'b1100_0000_1100;
                                 else
                                     rgb = 12'b1100_0100_0000;
@@ -355,13 +381,15 @@ module main_array(
                                                                                       :  max_shift_ang_bucket[(hcount >> 3)-MAX_SHIFT*2]  ) >> 5) > vcount) begin
                                 if (((hcount >> 3)-MAX_SHIFT*2) == (MAX_SHIFT + max_shift_val))
                                     rgb = 12'b0001_0001_1110;
-                                else if (((hcount >> 3)-MAX_SHIFT*2) == MAX_SHIFT /*should be center*/)
+                                else if (((hcount >> 3)-MAX_SHIFT*2) == MAX_SHIFT)
                                     rgb = 12'b1100_1100_1100;
                                 else
                                     rgb = 12'b1100_0000_1100;
                             end
                         end
-                    end else begin
+                    end*/
+                end else begin
+                    if ((hcount >> 3) <= (MAX_SHIFT*4)) begin
                         if ({shift_ang_bucket[hcount >> 4][44],
                              shift_ang_bucket[hcount >> 4][42],
                              shift_ang_bucket[hcount >> 4][40],
