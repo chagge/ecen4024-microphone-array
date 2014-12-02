@@ -63,33 +63,32 @@ module main_array(
     
     parameter TOTAL_MICS = 13;
     
-    reg [6:0] buf_target;   // current rolling sample in buffer
-    reg [4:0] shift_val;    // integer time-shift of buffers
-    reg shift_ang;          // to delay-sum to the left or right
-    reg [4:0] vshift_val;    // integer time-shift of buffers
-    reg vshift_ang;          // to delay-sum to the left or right
+    reg signed [6:0] buf_target;   // current rolling sample in buffer
+    reg signed [5:0] shift_val;    // integer time-shift of buffers
+    //reg shift_ang;          // to delay-sum to the left or right
+    //reg signed [5:0] vshift_val;    // integer time-shift of buffers
+    //reg vshift_ang;          // to delay-sum to the left or right
     reg [15:0] shift_cycle_count; // number of half-scan cycles that have happened
     reg [2:0] khz_datum_delay;
     
     // max values for tracking amplitude over time
-    reg [4:0]  calc_shift_val; // counter to find highest amp and specified beam location
-    reg        calc_shift_ang;
-    //reg [19:0] calc_val; 
+    reg signed [5:0]  calc_shift_val; // counter to find highest amp and specified beam location
+    reg signed [5:0]  calc_vshift_val; // counter to find highest amp and specified beam location
     reg signed [47:0] calc_val;
-    reg [4:0]  max_shift_val; // beam location of max value
-    reg        max_shift_ang;
-    reg [4:0]  max_vshift_val; // beam location of max value
-    reg        max_vshift_ang;
+    reg signed [47:0] vcalc_val;
+    reg signed [5:0]  max_shift_val; // beam location of max value (-17 to +17)
+    reg signed [5:0]  max_vshift_val; // beam location of max value
     
     // seven segment controller for debug output
-    seven_seg(.clk(mic_clk), .shift_val(max_shift_val), .shift_ang(max_shift_ang), .anode(an), .segments(seg));
+    seven_seg(.clk(mic_clk), .shift_val(max_shift_val), .vshift_val(max_vshift_val), .anode(an), .segments(seg));
     
     // VGA output for visualization
     wire blank;
-    wire [10:0] hcount, vcount;
-    vga_controller_640_60(.rst(1'b0), .pixel_clk(clk_25), .HS(hs), .VS(vs), .hcount(hcount), .vcount(vcount), .blank(blank));
+    wire signed [11:0] hcount, vcount;
+    vga_controller_640_60(.rst(1'b0), .pixel_clk(clk_25), .HS(hs), .VS(vs), .hcount(hcount[10:0]), .vcount(vcount[10:0]), .blank(blank));
     
     reg signed [19:0] sum_out;     // un-truncated sum from mic signals
+    reg signed [19:0] vsum_out;    // un-truncated sum from mic signals
     reg signed [15:0] aud_sum_out; // 16 value for PWM output
 
     reg [7:0] mic_datum[0:TOTAL_MICS];
@@ -106,9 +105,16 @@ module main_array(
     wire [23:0] lp_output[0:TOTAL_MICS];
     wire [15:0] hp_output[0:TOTAL_MICS];
     wire signed [15:0] beamshift_o[0:TOTAL_MICS];
-    reg [6:0] buf_target_offset[0:TOTAL_MICS]; // time-shifted addresses to pull from audio buffer
+    reg signed [6:0] buf_target_offset[0:TOTAL_MICS]; // time-shifted addresses to pull from audio buffer
     
     reg signed [47:0] shift_ang_bucket[0:MAX_SHIFT*2]; // sum buckets for each angle ("0"+17+17)
+    reg signed [47:0] vshift_ang_bucket[0:MAX_SHIFT*2]; // sum buckets for each angle ("0"+17+17)
+    reg signed [47:0] max_shift_ang_bucket[0:MAX_SHIFT*2]; // sum buckets for each angle ("0"+17+17) for visualization
+    reg signed [47:0] max_vshift_ang_bucket[0:MAX_SHIFT*2]; // sum buckets for each angle ("0"+17+17) for visualization
+    //reg signed [58:0] shift_ang_bucket_sum[0:MAX_SHIFT*2]; // sum buckets for each angle ("0"+17+17) for visualization
+    //wire signed [47:0] shift_ang_bucket_out[0:MAX_SHIFT*2];
+    
+    //reg [10:0] buf_sum_target;
 
     genvar i;
     integer j;
@@ -156,11 +162,13 @@ module main_array(
         end
         for(j = 0; j <= 34; j = j+1) begin
             shift_ang_bucket[j] = 0;
+            vshift_ang_bucket[j] = 0;
         end
         
         shift_val = 0;
-        shift_ang = 0;
+        //shift_ang = 0;
         buf_target = 0;
+        //buf_sum_target = 0;
     end
     
     always @(negedge lp_datum_valid[0]) begin
@@ -199,19 +207,20 @@ module main_array(
         // each cycle, adjust the time shifted buffer addresses if we aren't about to put out audio.
         khz_datum_delay = {khz_datum_delay[1:0], lp_datum_valid[0]};
         
-        buf_target_offset[0] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 + max_shift_val * 3 : buf_target - 51 - max_shift_val * 3)) : (shift_ang ? buf_target - 51 + shift_val * 3 : buf_target - 51 - shift_val * 3));
-        buf_target_offset[1] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 + max_shift_val * 2 : buf_target - 51 - max_shift_val * 2)) : (shift_ang ? buf_target - 51 + shift_val * 2 : buf_target - 51 - shift_val * 2));
-        buf_target_offset[2] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 + max_shift_val     : buf_target - 51 - max_shift_val    )) : (shift_ang ? buf_target - 51 + shift_val     : buf_target - 51 - shift_val    ));
-        buf_target_offset[3] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51                     : buf_target - 51                    )) : (shift_ang ? buf_target - 51                 : buf_target - 51                ));
-        buf_target_offset[4] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 - max_shift_val     : buf_target - 51 + max_shift_val    )) : (shift_ang ? buf_target - 51 - shift_val     : buf_target - 51 + shift_val    ));
-        buf_target_offset[5] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 - max_shift_val * 2 : buf_target - 51 + max_shift_val * 2)) : (shift_ang ? buf_target - 51 - shift_val * 2 : buf_target - 51 + shift_val * 2));
-        buf_target_offset[6] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_shift_ang ? buf_target - 51 - max_shift_val * 3 : buf_target - 51 + max_shift_val * 3)) : (shift_ang ? buf_target - 51 - shift_val * 3 : buf_target - 51 + shift_val * 3));
-        buf_target_offset[7] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 + max_vshift_val * 3 : buf_target - 51 - max_vshift_val * 3)) : (vshift_ang ? buf_target - 51 + vshift_val * 3 : buf_target - 51 - vshift_val * 3));
-        buf_target_offset[8] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 + max_vshift_val * 2 : buf_target - 51 - max_vshift_val * 2)) : (vshift_ang ? buf_target - 51 + vshift_val * 2 : buf_target - 51 - vshift_val * 2));
-        buf_target_offset[9] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 + max_vshift_val     : buf_target - 51 - max_vshift_val    )) : (vshift_ang ? buf_target - 51 + vshift_val     : buf_target - 51 - vshift_val    ));
-        buf_target_offset[10] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 - max_vshift_val     : buf_target - 51 + max_vshift_val    )) : (vshift_ang ? buf_target - 51 - vshift_val     : buf_target - 51 + vshift_val    ));
-        buf_target_offset[11] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 - max_vshift_val * 2 : buf_target - 51 + max_vshift_val * 2)) : (vshift_ang ? buf_target - 51 - vshift_val * 2 : buf_target - 51 + vshift_val * 2));
-        buf_target_offset[12] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (max_vshift_ang ? buf_target - 51 - max_vshift_val * 3 : buf_target - 51 + max_vshift_val * 3)) : (vshift_ang ? buf_target - 51 - vshift_val * 3 : buf_target - 51 + vshift_val * 3));
+        buf_target_offset[0] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_shift_val * 3)) : (buf_target - 51 + shift_val * 3));
+        buf_target_offset[1] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_shift_val * 2)) : (buf_target - 51 + shift_val * 2));
+        buf_target_offset[2] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_shift_val    )) : (buf_target - 51 + shift_val    ));
+        buf_target_offset[3] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51                    )) : (buf_target - 51                ));
+        buf_target_offset[4] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_shift_val    )) : (buf_target - 51 - shift_val    ));
+        buf_target_offset[5] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_shift_val * 2)) : (buf_target - 51 - shift_val * 2));
+        buf_target_offset[6] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_shift_val * 3)) : (buf_target - 51 - shift_val * 3));
+        
+        buf_target_offset[7] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 3)) : (buf_target - 51 - shift_val * 3));
+        buf_target_offset[8] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val * 2)) : (buf_target - 51 - shift_val * 2));
+        buf_target_offset[9] =  (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 - max_vshift_val    )) : (buf_target - 51 - shift_val    ));
+        buf_target_offset[10] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val    )) : (buf_target - 51 + shift_val    ));
+        buf_target_offset[11] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 2)) : (buf_target - 51 + shift_val * 2));
+        buf_target_offset[12] = (khz_datum_delay == 3'b001 ? (mic_sel[15] ? buf_target - 51 : (buf_target - 51 + max_vshift_val * 3)) : (buf_target - 51 + shift_val * 3));
         
         
         if (khz_datum_delay == 3'b010) begin
@@ -232,53 +241,83 @@ module main_array(
             led_out = aud_sum_out[15] ? ~aud_sum_out[15:0] : aud_sum_out[15:0];
         end else begin
             sum_out = mic_sel[14] ? ((beamshift_o[0][15] ? ~beamshift_o[0] : beamshift_o[0]) +
-                                  (beamshift_o[1][15] ? ~beamshift_o[1] : beamshift_o[1]) +
-                                  (beamshift_o[2][15] ? ~beamshift_o[2] : beamshift_o[2]) +
-                                  (beamshift_o[3][15] ? ~beamshift_o[3] : beamshift_o[3]) +
-                                  (beamshift_o[4][15] ? ~beamshift_o[4] : beamshift_o[4]) +
-                                  (beamshift_o[5][15] ? ~beamshift_o[5] : beamshift_o[5]) +
-                                  (beamshift_o[6][15] ? ~beamshift_o[6] : beamshift_o[6])) 
-                               : (beamshift_o[0] +
-                                  beamshift_o[1] +
-                                  beamshift_o[2] +
-                                  beamshift_o[3] +
-                                  beamshift_o[4] +
-                                  beamshift_o[5] +
-                                  beamshift_o[6]);
-            if (shift_cycle_count == 24000) begin // about 1 sec
+                                     (beamshift_o[1][15] ? ~beamshift_o[1] : beamshift_o[1]) +
+                                     (beamshift_o[2][15] ? ~beamshift_o[2] : beamshift_o[2]) +
+                                     (beamshift_o[3][15] ? ~beamshift_o[3] : beamshift_o[3]) +
+                                     (beamshift_o[4][15] ? ~beamshift_o[4] : beamshift_o[4]) +
+                                     (beamshift_o[5][15] ? ~beamshift_o[5] : beamshift_o[5]) +
+                                     (beamshift_o[6][15] ? ~beamshift_o[6] : beamshift_o[6])) 
+                                   : (beamshift_o[0] +
+                                      beamshift_o[1] +
+                                      beamshift_o[2] +
+                                      beamshift_o[3] +
+                                      beamshift_o[4] +
+                                      beamshift_o[5] +
+                                      beamshift_o[6]);
+            vsum_out = mic_sel[14] ? ((beamshift_o[7][15] ? ~beamshift_o[7] : beamshift_o[7]) +
+                                      (beamshift_o[8][15] ? ~beamshift_o[8] : beamshift_o[8]) +
+                                      (beamshift_o[9][15] ? ~beamshift_o[9] : beamshift_o[9]) +
+                                      (beamshift_o[3][15] ? ~beamshift_o[3] : beamshift_o[3]) +
+                                      (beamshift_o[10][15] ? ~beamshift_o[10] : beamshift_o[10]) +
+                                      (beamshift_o[11][15] ? ~beamshift_o[11] : beamshift_o[11]) +
+                                      (beamshift_o[12][15] ? ~beamshift_o[12] : beamshift_o[12])) 
+                                    : (beamshift_o[7] +
+                                       beamshift_o[8] +
+                                       beamshift_o[9] +
+                                       beamshift_o[3] +
+                                       beamshift_o[10] +
+                                       beamshift_o[11] +
+                                       beamshift_o[12]);
+            if (shift_cycle_count == 16384) begin // about 1/3 sec
                 shift_cycle_count = 0;
-                max_shift_ang = calc_shift_ang;
                 max_shift_val = calc_shift_val;
-                calc_shift_ang = 0;
+                max_vshift_val = calc_vshift_val;
                 calc_shift_val = 0;
+                calc_vshift_val = 0;
                 calc_val = 0;
+                vcalc_val = 0;
                 //
                 for(j = 0; j <= 34; j = j+1) begin
                     shift_ang_bucket[j] = 0;
+                    vshift_ang_bucket[j] = 0;
+                    //shift_ang_bucket_sum[j] = 0;
                 end
             end else begin
                 // every ~2048 calcs, about 1/12 of a second
-                if ((shift_cycle_count[10:0] == 2) && !mic_sel[13]) // offset a couple to account for other stuff at 0
-                    shift_ang_bucket[MAX_SHIFT + (shift_ang ? -shift_val : shift_val)] = /*shift_ang_bucket[shift_val+shift_ang*17] + sum_out * */ sum_out;
-                else if (mic_sel[13])
-                    shift_ang_bucket[MAX_SHIFT + (shift_ang ? -shift_val : shift_val)] = /*shift_ang_bucket[shift_val+shift_ang*17] + sum_out * */ sum_out;
-                if (sum_out /*shift_ang_bucket[shift_val+shift_ang*17]*/ > calc_val) begin
-                    calc_val <= sum_out /*shift_ang_bucket[shift_val+shift_ang*17]*/;
-                    calc_shift_ang <= shift_ang;
-                    calc_shift_val <= shift_val;
+                if (!mic_sel[13]) begin // offset a couple to account for other stuff at 0
+                    if (shift_cycle_count[10:0] == 2) begin 
+                        max_shift_ang_bucket[MAX_SHIFT + shift_val] = shift_ang_bucket[MAX_SHIFT + shift_val];
+                        shift_ang_bucket[MAX_SHIFT + shift_val] = 0;
+                        max_vshift_ang_bucket[MAX_SHIFT + shift_val] = vshift_ang_bucket[MAX_SHIFT + shift_val];
+                        vshift_ang_bucket[MAX_SHIFT + shift_val] = 0;
+                    end
+                    if (sum_out > shift_ang_bucket[MAX_SHIFT + shift_val]) begin
+                        shift_ang_bucket[MAX_SHIFT + shift_val] = sum_out;
+                    end
+                    if (vsum_out > vshift_ang_bucket[MAX_SHIFT + shift_val]) begin
+                        vshift_ang_bucket[MAX_SHIFT + shift_val] = vsum_out;
+                    end
+                    if (sum_out > calc_val) begin
+                        calc_val <= sum_out;
+                        calc_shift_val <= shift_val;
+                    end
+                    if (vsum_out > vcalc_val) begin
+                        vcalc_val <= vsum_out;
+                        calc_vshift_val <= shift_val;
+                    end
+                end else begin
+                    shift_ang_bucket[MAX_SHIFT + shift_val] = shift_ang_bucket[MAX_SHIFT + shift_val] + sum_out * sum_out;
+                    if (shift_ang_bucket[MAX_SHIFT + shift_val] > calc_val) begin
+                        calc_val <= shift_ang_bucket[MAX_SHIFT + shift_val];
+                        calc_shift_val <= shift_val;
+                    end
                 end
             end
         //end
             shift_val = shift_val + 1;
             if (shift_val == MAX_SHIFT+1) begin
-                if (shift_ang) begin
-                    shift_val = 0;
-                    shift_cycle_count = shift_cycle_count + 1;
-                end else begin
-                    shift_val = 1;
-                end
-                shift_ang = ~shift_ang;
-                //shift_cycle_count = shift_cycle_count + 1;
+                shift_val = -MAX_SHIFT;
+                shift_cycle_count = shift_cycle_count + 1;
             end
         end
     end
@@ -298,21 +337,51 @@ module main_array(
             0: begin
                 // grey
                 rgb = 12'b0100_0100_0100;
-                if ((hcount >> 4) <= (MAX_SHIFT*2)) begin
-                    if (((shift_ang_bucket[hcount >> 4][47] ? ~shift_ang_bucket[hcount >> 4]+1 : shift_ang_bucket[hcount >> 4]) >> 5) > vcount)
-                    /*if ({shift_ang_bucket[hcount >> 4][44],
-                         shift_ang_bucket[hcount >> 4][40],
-                         shift_ang_bucket[hcount >> 4][36],
-                         shift_ang_bucket[hcount >> 4][32],
-                         shift_ang_bucket[hcount >> 4][28],
-                         shift_ang_bucket[hcount >> 4][24],
-                         shift_ang_bucket[hcount >> 4][20],
-                         shift_ang_bucket[hcount >> 4][16],
-                         shift_ang_bucket[hcount >> 4][12],
-                         shift_ang_bucket[hcount >> 4][8],
-                         shift_ang_bucket[hcount >> 4][4],
-                         shift_ang_bucket[hcount >> 4][0]} > vcount)*/
-                        rgb = 12'b1100_0000_1100;
+                //if ((hcount >> 4) <= (MAX_SHIFT*2)) begin
+                if ((hcount >> 3) <= (MAX_SHIFT*4)) begin
+                    if (!mic_sel[13]) begin
+                        if ((hcount >> 3) <= MAX_SHIFT*2) begin
+                            if (((max_vshift_ang_bucket[hcount >> 3][47] ? ~max_vshift_ang_bucket[hcount >> 3]+1
+                                                                         :  max_vshift_ang_bucket[hcount >> 3]  ) >> 5) > vcount) begin 
+                                if ((hcount >> 3) == (MAX_SHIFT + max_vshift_val))
+                                    rgb = 12'b0001_0001_1110;
+                                else if ((hcount >> 3) == MAX_SHIFT /*should be center*/)
+                                    rgb = 12'b1100_0000_1100;
+                                else
+                                    rgb = 12'b1100_0100_0000;
+                            end
+                        end else begin // second half, x axis
+                            if (((max_shift_ang_bucket[(hcount >> 3)-MAX_SHIFT*2][47] ? ~max_shift_ang_bucket[(hcount >> 3)-MAX_SHIFT*2]+1
+                                                                                      :  max_shift_ang_bucket[(hcount >> 3)-MAX_SHIFT*2]  ) >> 5) > vcount) begin
+                                if (((hcount >> 3)-MAX_SHIFT*2) == (MAX_SHIFT + max_shift_val))
+                                    rgb = 12'b0001_0001_1110;
+                                else if (((hcount >> 3)-MAX_SHIFT*2) == MAX_SHIFT /*should be center*/)
+                                    rgb = 12'b1100_1100_1100;
+                                else
+                                    rgb = 12'b1100_0000_1100;
+                            end
+                        end
+                    end else begin
+                        if ({shift_ang_bucket[hcount >> 4][44],
+                             shift_ang_bucket[hcount >> 4][42],
+                             shift_ang_bucket[hcount >> 4][40],
+                             shift_ang_bucket[hcount >> 4][38],
+                             shift_ang_bucket[hcount >> 4][36],
+                             shift_ang_bucket[hcount >> 4][34],
+                             shift_ang_bucket[hcount >> 4][30],
+                             shift_ang_bucket[hcount >> 4][26],
+                             shift_ang_bucket[hcount >> 4][22],
+                             shift_ang_bucket[hcount >> 4][18],
+                             shift_ang_bucket[hcount >> 4][14],
+                             shift_ang_bucket[hcount >> 4][10]} > vcount) begin
+                            if ((hcount >> 4) == (MAX_SHIFT + max_shift_val))
+                                rgb = 12'b1110_0001_0001;
+                            else if (hcount >> 4 == MAX_SHIFT /*should be center*/)
+                                rgb = 12'b1100_1100_1100;
+                            else
+                                rgb = 12'b0000_1100_1100;
+                        end
+                    end
                 end
             end
             
